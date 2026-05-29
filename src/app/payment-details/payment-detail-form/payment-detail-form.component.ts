@@ -9,6 +9,17 @@ import { PaymentDetailService } from '../../shared/payment-detail.service';
 })
 export class PaymentDetailFormComponent {
   constructor(public service: PaymentDetailService) {
-  
+  }
+
+  onSubmit(event: Event) {
+    event.preventDefault();
+
+    this.service.postPaymentDetail()
+    .subscribe({
+      next: res => {
+        console.log(res);
+      },
+      error: err => {console.log(err)}
+    });
   }
 }

@@ -1,9 +1,9 @@
-<form>
+<form (submit)="onSubmit($event)">
     <input type="hidden" name="paymentDetailId" [value]="service.formData.paymentDetailId">
     <div class="mb-3">
         <label>Card Owner Name</label>
         <input class="form-control form-control-lg" 
-        placeholder="Name on Card" name="cardOwnerName"
+        placeholder="Name of Card" name="cardOwnerName"
         [value]="service.formData.cardOwnerName" 
         (input)="service.formData.cardOwnerName = $event.target.value">
     </div>
