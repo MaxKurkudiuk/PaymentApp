@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PaymentDetailService } from '../../shared/payment-detail.service';
 
 @Component({
   selector: 'app-payment-detail-form',
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './payment-detail-form.component.html',
   styles: ``,
 })
-export class PaymentDetailFormComponent {}
+export class PaymentDetailFormComponent {
+  constructor(public service: PaymentDetailService) {
+  
+  }
+}
