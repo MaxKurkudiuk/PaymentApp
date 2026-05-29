@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PaymentDetailService } from '../../shared/payment-detail.service';
+import { PaymentDetail } from '../../shared/payment-detail.model';
 
 @Component({
   selector: 'app-payment-detail-form',
@@ -12,12 +13,13 @@ export class PaymentDetailFormComponent {
   }
 
   onSubmit(event: Event) {
-    event.preventDefault();
+    // event.preventDefault();
 
     this.service.postPaymentDetail()
     .subscribe({
       next: res => {
-        console.log(res);
+        this.service.list = res as PaymentDetail[];
+        this.service.resetForm();
       },
       error: err => {console.log(err)}
     });

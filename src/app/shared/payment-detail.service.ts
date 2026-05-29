@@ -27,4 +27,8 @@ export class PaymentDetailService {
   postPaymentDetail() {
     return this.http.post(this.url, this.formData)
   }
+
+  resetForm(): void {
+    this.formData = new PaymentDetail();
+  }
 }
