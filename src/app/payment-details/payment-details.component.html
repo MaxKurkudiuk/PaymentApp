@@ -18,7 +18,8 @@
                         <div class="fw-bold">{{ detail.expirationDate }}</div>
                     </div>
                     <span class="text-secondary">
-                        <i class="fa-solid fa-trash-can fa-lg mouse-hover"></i>
+                        <i class="fa-solid fa-trash-can fa-lg mouse-hover"
+                        (click)="deleteForm(detail.paymentDetailId)"></i>
                     </span>
                 </li>
             }

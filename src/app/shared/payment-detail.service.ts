@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from '../../environments/environment';
 import { PaymentDetail } from './payment-detail.model';
@@ -14,7 +14,7 @@ export class PaymentDetailService {
   formData: PaymentDetail = new PaymentDetail();
   formSubmitted: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
 
   refreshList() {
     this.http.get(this.url)
@@ -32,6 +32,10 @@ export class PaymentDetailService {
 
   putPaymentDetail() {
     return this.http.put(this.url + '/' + this.formData.paymentDetailId, this.formData)
+  }
+
+  deletePaymentDetail(id: number) {
+    return this.http.delete(this.url + '/' + id);
   }
 
   resetForm(form: NgForm): void {

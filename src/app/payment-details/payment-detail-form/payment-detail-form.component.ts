@@ -11,8 +11,8 @@ import { FormsModule, NgForm } from '@angular/forms';
   styles: ``,
 })
 export class PaymentDetailFormComponent {
-  constructor(public service: PaymentDetailService, private toastr: ToastrService) {
-  }
+  public service = inject(PaymentDetailService);
+  private toastr = inject(ToastrService);
 
   onSubmit(form: NgForm) {
     this.service.formSubmitted = true;
