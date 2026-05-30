@@ -9,9 +9,10 @@ import { NgForm } from '@angular/forms';
 })
 export class PaymentDetailService {
 
-  url:string = environment.apiBaseUrl + '/PaymentDetail';
-  list:PaymentDetail[] = [];
-  formData:PaymentDetail = new PaymentDetail();
+  url: string = environment.apiBaseUrl + '/PaymentDetail';
+  list: PaymentDetail[] = [];
+  formData: PaymentDetail = new PaymentDetail();
+  formSubmitted: boolean = false;
 
   constructor(private http: HttpClient) {}
 
@@ -32,5 +33,6 @@ export class PaymentDetailService {
   resetForm(form: NgForm): void {
     form.form.reset();
     this.formData = new PaymentDetail();
+    this.formSubmitted = false;
   }
 }

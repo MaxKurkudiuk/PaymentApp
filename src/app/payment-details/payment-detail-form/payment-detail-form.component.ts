@@ -15,19 +15,19 @@ export class PaymentDetailFormComponent {
   }
 
   onSubmit(form: NgForm) {
-  // onSubmit(event: Event) {
-    // event.preventDefault();
-
-    this.service.postPaymentDetail()
-    .subscribe({
-      next: res => {
-        this.service.list = res as PaymentDetail[];
-        this.service.resetForm(form);
-        this.toastr.success('Payment detail added successfully!', 'Payment Detail Register');
-      },
-      error: err => {
-        this.toastr.error('Failed to add payment detail.', 'Error');
-      }
-    });
+    this.service.formSubmitted = true;
+    if (form.valid) {
+      this.service.postPaymentDetail()
+      .subscribe({
+        next: res => {
+          this.service.list = res as PaymentDetail[];
+          this.service.resetForm(form);
+          this.toastr.success('Payment detail added successfully!', 'Payment Detail Register');
+        },
+        error: err => {
+          this.toastr.error('Failed to add payment detail.', 'Error');
+        }
+      });
+    }
   }
 }
