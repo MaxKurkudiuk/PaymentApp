@@ -11,7 +11,8 @@
         <ul class="list-group">
             @for (detail of service.list; track detail.paymentDetailId) {
                 <li class="list-group-item d-flex justify-content-between align-items-start, mb-2 border px-4 py-3 rounded-3">
-                    <div class="flex-grow-1 mouse-hover">
+                    <div class="flex-grow-1 mouse-hover"
+                    (click)="populateForm(detail)">
                         <div class="fw-bold">{{ detail.cardOwnerName }}</div>
                         <div>{{ detail.cardNumber }}</div>
                         <div class="fw-bold">{{ detail.expirationDate }}</div>
